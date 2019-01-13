@@ -69,11 +69,15 @@ Encoding of the buffer.
 An array of strings useful for adding additional metadata descriptions
 to an instance of `VirtualFile`.
 
+---
+
 ### Static Methods
 
 #### `VirtualFile.IsVirtualFile(file: VirtualFile): boolean`
 
 Returns true if the provided value is an instance of `VirtualFile`.
+
+---
 
 ### Instance Methods
 
@@ -100,6 +104,8 @@ instance.
 #### `file.clone(): VirtualFile`
 
 Returns a clone of the `VirtualFile` instance.
+
+---
 
 ### Instance Properties
 
@@ -208,6 +214,14 @@ instances of `VirtualFile` will return the constant string value.
 
 Comparable to `[Symbol.toStringTag]` this symbol is used by node's
 `util.inspect`.
+
+## Changelog
+* `1.0.0` - initial release
+* `1.0.2` - added documentation
+
+## Roadmap
+* virtual file collections
+  * leveraging tags to create virtual groupings of VirtualFiles
 
 [1]: https://www.iana.org/assignments/media-types/media-types.xhtml
 [2]: https://nodejs.org/docs/latest-v10.x/api/path.html#path_path_parse_path
