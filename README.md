@@ -1,11 +1,11 @@
 <p align="center">
-    <img alt="virtual-file" src="https://github.com/composerjs/virtual-file/blob/master/logo.png" width="256">
+    <img alt="virtual-file" src="https://raw.githubusercontent.com/composerjs/virtual-file/master/logo.png" width="256">
     <h1 align="center">📁 Virtual-File 📁</h1>
 </p>
 
 <p align="center">
   VirtualFile is an object that represents a Buffer and it's metadata.
-  Though this object is comparable to a [`Vinyl`](https://github.com/gulpjs/vinyl)
+  Though this object is comparable to a <a href="https://github.com/gulpjs/vinyl">Vinyl</a>
   object, the intention is that this is truly a simple, and flat metadata
   object.
 </p>
@@ -76,60 +76,80 @@ Returns true if the provided value is an instance of `VirtualFile`.
 ### Instance Methods
 
 #### `file.toString(): string`
+
 Returns the Buffer as a string. Internally this uses `StringDecoder`, but
 only when `encoding` is set to `utf8` or `utf16`
 
 #### `file.toJSON(): object`
+
 Called when an instance of `VirtualFile` has been `JSON.stringify()`'d.
 This returns a flat object of picked properties from the instance.
 
 #### `file.toObject(): object`
+
 Alias of `file.toJSON()`
 
 #### `file.extend(file: VirtualFile): void`
+
 Extends the instance with property values from the provided instance.
 
 #### `file.clone(): VirtualFile`
+
 returns a new cloned instance of `VirtualFile`
 
 ### Instance Properties
 
 #### `file.content: Buffer`
+
 `Buffer` representation of the file contents
 
 #### `file.byteLength: number`
 
 #### `file.encoding: string `
-encoding `string`
+
+file encoding `string`
 
 #### `file.tags: string[]`
 
+An array of strings useful for adding additional metadata descriptions
+to an instance of `VirtualFile`.
+
 #### `file.path: string`
-complete path `string`
+
+complete path
 
 #### `file.name: string`
-name `string` of the file via [path.parse](https://nodejs.org/docs/latest-v10.x/api/path.html#path_path_parse_path)
+
+name of the file via [path.parse](https://nodejs.org/docs/latest-v10.x/api/path.html#path_path_parse_path)
 
 #### `file.isURL: boolean`
+
 If the provided path is a valid URL this will be true.
+
 *Default: `false`*
 
 #### `file.ext: string`
-extension `string` of the file via [path.parse](https://nodejs.org/docs/latest-v10.x/api/path.html#path_path_parse_path). If path is a URL `ext` will be TLD.
+
+file extension of the file via [path.parse](https://nodejs.org/docs/latest-v10.x/api/path.html#path_path_parse_path). If path is a URL `ext` will be TLD.
 
 #### `file.mediaType: string | undefined`
+
 [Media Type](https://www.iana.org/assignments/media-types/media-types.xhtml) (formerly called Mime Type) of the file.
+
 *Default: `undefined`*
 
 #### `file.contentType: string | undefined`
+
 The `Content-Type` entity header value used in HTTP transactions.
 This value may not be set.
 
 #### `[Symbol.toStringTag]: string`
+
 Set by default in all instances. Calls to `Object.prototype.toString.call(file)` for
 instances of `VirtualFile` will return the constant string value of
 `VirtualFile`.
 
 #### `nodejs.util.inspect.custom: string`
+
 Comparable to `[Symbol.toStringTag]` this symbol is used by nodes
 `util.inspect`.
