@@ -1,4 +1,4 @@
-import { parse } from 'path';
+import { parse, resolve } from 'path';
 import { URL } from 'url';
 import { NodeStringDecoder, StringDecoder } from 'string_decoder';
 import getFileType from 'file-type';
@@ -22,6 +22,11 @@ interface VirtualFileToObject {
   encoding?: string;
   ext: string;
   name: string;
+  isURL: boolean;
+  absolute?: string;
+  dir?: string;
+  base?: string;
+  root?: string;
   tags?: string[];
   mediaType?: string;
   contentType?: string;
@@ -33,6 +38,11 @@ interface VirtualFileClone  {
   encoding?: string;
   ext: string;
   name: string;
+  isURL: boolean;
+  absolute?: string;
+  dir?: string;
+  base?: string;
+  root?: string;
   tags?: string[];
   mediaType?: string;
   contentType?: string;
@@ -44,6 +54,10 @@ export class VirtualFile {
   readonly path: string;
   readonly name: string;
   readonly isURL: boolean;
+  readonly absolute?: string;
+  readonly dir?: string;
+  readonly base?: string;
+  readonly root?: string;
   readonly encoding?: string;
   readonly tags?: string[];
   readonly ext: string;
@@ -53,7 +67,7 @@ export class VirtualFile {
   protected constructor(path: string, content: Buffer, encoding?: string, tags?: string[]) {
     let isURL = false;
     try { new URL(path); isURL = true; } catch {}
-    const {name, ext} = parse(path);
+    const {name, ext, dir, base, root} = parse(path);
 		let fileType = getFileType(content);
 		let mediaType = mime.lookup(ext);
 		let contentType = mime.contentType(ext);
@@ -65,6 +79,14 @@ export class VirtualFile {
     this.content = content;
     this.encoding = encoding;
     this.tags = tags;
+
+    if (!isURL) {
+      this.absolute = resolve(path);
+      this.dir = dir;
+      this.base = base;
+      this.root = root;
+    }
+
     // preserve multi-byte characters
     if (encoding && ['utf8', 'utf16'].indexOf(encoding) > -1) {
       this.decoder = new StringDecoder(encoding);
@@ -110,7 +132,20 @@ export class VirtualFile {
     return this.content.toString();
   }
   toJSON(): VirtualFileToObject {
-    const {path, encoding, ext, name, tags, mediaType, contentType} = this;
+    const {
+      path,
+      encoding,
+      ext,
+      name,
+      isURL,
+      absolute,
+      base,
+      dir,
+      root,
+      tags,
+      mediaType,
+      contentType
+    } = this;
     const content = this.toString();
     return {
       path,
@@ -118,6 +153,11 @@ export class VirtualFile {
       encoding,
       ext,
       name,
+      isURL,
+      absolute,
+      base,
+      dir,
+      root,
       tags,
       mediaType,
       contentType

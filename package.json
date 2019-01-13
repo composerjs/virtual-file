@@ -1,20 +1,33 @@
 {
   "name": "@composerjs/virtual-file",
   "version": "1.0.1",
+  "description": "file metadata",
   "author": "Justin Beaudry <beaudry.justin@gmail.com>",
+  "repository": "github:composerjs/virtual-file",
   "license": "MIT",
+  "engines": {
+    "node": ">= 10.x.x"
+  },
   "main": "virtualFile.ts",
+  "files": [
+    "LICENSE",
+    "virtualFile.ts"
+  ],
   "dependencies": {
-    "@types/node": "10.x.x",
     "@types/file-type": "10.x.x",
     "@types/is-svg": "3.x.x",
     "@types/mime-types": "2.x.x",
     "file-type": "10.x.x",
     "is-svg": "3.x.x",
-    "mime-types": "2.x.x",
-    "tslib": "1.x.x"
+    "mime-types": "2.x.x"
   },
   "devDependencies": {
-    "typescript": "3.2.2"
-  }
+    "@types/node": "10.x.x",
+    "typescript": "3.2.2",
+    "tslib": "1.x.x"
+  },
+  "keywords": [
+    "file",
+    "metadata"
+  ]
 }
