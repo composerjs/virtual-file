@@ -172,8 +172,8 @@
     <inspection_tool class="EmptyTryBlockJS" enabled="true" level="WARNING" enabled_by_default="false">
       <scope name="project-except-markdown" level="WARNING" enabled="true" />
     </inspection_tool>
-    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="false">
-      <scope name="project-except-markdown" level="WARNING" enabled="true" />
+    <inspection_tool class="Eslint" enabled="false" level="WARNING" enabled_by_default="false">
+      <scope name="project-except-markdown" level="WARNING" enabled="false" />
     </inspection_tool>
     <inspection_tool class="ExceptionCaughtLocallyJS" enabled="true" level="WARNING" enabled_by_default="false">
       <scope name="project-except-markdown" level="WARNING" enabled="true" />
@@ -313,8 +313,8 @@
     <inspection_tool class="JSFunctionExpressionToArrowFunction" enabled="false" level="INFORMATION" enabled_by_default="false">
       <scope name="project-except-markdown" level="INFORMATION" enabled="false" />
     </inspection_tool>
-    <inspection_tool class="JSHint" enabled="true" level="ERROR" enabled_by_default="false">
-      <scope name="project-except-markdown" level="ERROR" enabled="true" />
+    <inspection_tool class="JSHint" enabled="false" level="ERROR" enabled_by_default="false">
+      <scope name="project-except-markdown" level="ERROR" enabled="false" />
     </inspection_tool>
     <inspection_tool class="JSIgnoredPromiseFromCall" enabled="true" level="WEAK WARNING" enabled_by_default="false">
       <scope name="project-except-markdown" level="WEAK WARNING" enabled="true" />
@@ -328,8 +328,8 @@
     <inspection_tool class="JSLastCommaInObjectLiteral" enabled="true" level="WARNING" enabled_by_default="false">
       <scope name="project-except-markdown" level="WARNING" enabled="true" />
     </inspection_tool>
-    <inspection_tool class="JSLint" enabled="true" level="ERROR" enabled_by_default="false">
-      <scope name="project-except-markdown" level="ERROR" enabled="true" />
+    <inspection_tool class="JSLint" enabled="false" level="ERROR" enabled_by_default="false">
+      <scope name="project-except-markdown" level="ERROR" enabled="false" />
     </inspection_tool>
     <inspection_tool class="JSMethodCanBeStatic" enabled="true" level="WARNING" enabled_by_default="false">
       <scope name="project-except-markdown" level="WARNING" enabled="true" />
@@ -440,8 +440,8 @@
       <scope name="project-except-markdown" level="WEAK WARNING" enabled="true" />
     </inspection_tool>
     <inspection_tool class="JadeTabsAndSpaces" enabled="false" level="ERROR" enabled_by_default="false" />
-    <inspection_tool class="Jscs" enabled="true" level="ERROR" enabled_by_default="false">
-      <scope name="project-except-markdown" level="ERROR" enabled="true" />
+    <inspection_tool class="Jscs" enabled="false" level="ERROR" enabled_by_default="false">
+      <scope name="project-except-markdown" level="ERROR" enabled="false" />
     </inspection_tool>
     <inspection_tool class="KarmaConfigFile" enabled="true" level="WARNING" enabled_by_default="false">
       <scope name="project-except-markdown" level="WARNING" enabled="true" />
@@ -610,7 +610,7 @@
       <option name="processLiterals" value="true" />
       <option name="processComments" value="true" />
     </inspection_tool>
-    <inspection_tool class="StandardJS" enabled="true" level="ERROR" enabled_by_default="false">
+    <inspection_tool class="StandardJS" enabled="true" level="ERROR" enabled_by_default="true">
       <scope name="project-except-markdown" level="ERROR" enabled="true" />
     </inspection_tool>
     <inspection_tool class="StatementsPerFunctionJS" enabled="true" level="WARNING" enabled_by_default="false">

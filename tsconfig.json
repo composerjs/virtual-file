@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ES6",
     "module": "commonjs",
     "lib": ["es2015", "es2016", "es2017.object"],
     "allowJs": true,
     "checkJs": true,
-    "declaration": true,
-    "sourceMap": true,
     "rootDir": "./",
     "removeComments": true,
     "importHelpers": true,
