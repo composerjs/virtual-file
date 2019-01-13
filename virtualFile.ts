@@ -86,7 +86,7 @@ export class VirtualFile {
   static Factory({
     path,
     content,
-    encoding,
+    encoding='utf8',
     tags
   }: VirtualFileFactoryParams): VirtualFile {
     return new VirtualFile(path, content, encoding, tags);

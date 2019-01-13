@@ -26,7 +26,7 @@
 
 ```typescript
   import fs from 'fs';
-  import VirtualFile from '@composerjs/virtual-file';
+  import { VirtualFile } from '@composerjs/virtual-file';
   
   const file = VirtualFile.Factory({
     path: './package.json',
@@ -35,43 +35,62 @@
     tags: ['npm-package']
   });
   
-  console.info(file.toString()); // '{"name":"@composerjs/virtual-file"...
-  console.info(file.mediaType); // 'application/json'
-  console.info(file.byteLength) // 341 
+  console.info(file.toString());  // '{"name":"@composerjs/virtual-file"...
+  console.info(file.mediaType);   // 'application/json'
+  console.info(file.byteLength)   // 341 
 ```
 
 ## API
 
 ### `VirtualFile.Factory({options})`
+
 Constructs a new instance of a `VirtualFile` where an instance represents
 a single file. All attributes of a VirtualFile are readonly so once
 constructed the properties cannot be changed.
 
 #### `options`
 
-Optional options will have a union type expression of `TYPE | undefined`.
+#### `options.path: string` **Required**
 
-#### `options.path: string`
 Relative or absolute path location of the file.
-**Required**
 
-#### `options.content: Buffer`
+#### `options.content: Buffer` **Required**
+
 Buffer of the file.
-**Required**
 
-#### `options.encoding: string | undefined`
+#### `options.encoding: string` **Optional**
+
 Encoding of the buffer.
-**Optional**
-*Default: `utf8`*
 
-#### `options.tags: string[] | undefined`
+*Default: __`utf8`__*
+
+#### `options.tags: string[]`
+
 An array of strings useful for adding additional metadata descriptions
 to an instance of `VirtualFile`.
 
 ### Static Methods
 
 #### `VirtualFile.IsVirtualFile(file: VirtualFile): boolean`
+
 Returns true if the provided value is an instance of `VirtualFile`.
+
+```typescript
+
+  import { readFileSync } from 'fs';
+  import { VirtualFile } from '@composerjs/virtual-file';
+  
+  const path = './package.json';
+  const content = readFileSync(path);
+  const file = VirtualFile.Factory({
+    path,
+    content
+  });
+  
+  VirtualFile.IsVirtualFile(file);  // true
+  VirtualFile.IsVirtualFile({});    // false
+  
+```
 
 ### Instance Methods
 
@@ -80,14 +99,49 @@ Returns true if the provided value is an instance of `VirtualFile`.
 Returns the Buffer as a string. Internally this uses `StringDecoder`, but
 only when `encoding` is set to `utf8` or `utf16`
 
+```typescript
+
+  import { readFileSync } from 'fs';
+  import { VirtualFile } from '@composerjs/virtual-file';
+  
+  const path = './package.json';
+  const content = readFileSync(path);
+  const file = VirtualFile.Factory({
+    path,
+    content
+  });
+  
+```
+
 #### `file.toJSON(): object`
 
 Called when an instance of `VirtualFile` has been `JSON.stringify()`'d.
 This returns a flat object of picked properties from the instance.
 
+
+
 #### `file.toObject(): object`
 
-Alias of `file.toJSON()`
+Alias of `file.toJSON()`.
+
+```typescript
+
+  import { readFileSync } from 'fs';
+  import { VirtualFile } from '@composerjs/virtual-file';
+  
+  const path = './package.json';
+  const content = Buffer.from(`{
+    name: 'my-package',
+    version: '1.0.0'   
+  }`);
+  const file = VirtualFile.Factory({
+    path,
+    content
+  });
+  
+  file.toJSON(); // {  path: './package', content: < Buffer ... >, ext: '.json', mediaType: 'application/json' ...
+  
+```
 
 #### `file.extend(file: VirtualFile): void`
 
@@ -105,18 +159,23 @@ returns a new cloned instance of `VirtualFile`
 
 #### `file.byteLength: number`
 
+Alias of `this.content.byteLength`. Returns the Buffer size in bytes.
+
 #### `file.encoding: string `
 
-file encoding `string`
+file encoding `string` i.e. `utf8`, `utf16`, `buffer`
 
 #### `file.tags: string[]`
 
-An array of strings useful for adding additional metadata descriptions
-to an instance of `VirtualFile`.
+An array of strings useful for adding additional context about the file
+the instance of `VirtualFile` is representing.
+
+At the moment tags are just an array of strings to provide additional
+context for the file.
 
 #### `file.path: string`
 
-complete path
+complete file path
 
 #### `file.name: string`
 
@@ -130,7 +189,8 @@ If the provided path is a valid URL this will be true.
 
 #### `file.ext: string`
 
-file extension of the file via [path.parse](https://nodejs.org/docs/latest-v10.x/api/path.html#path_path_parse_path). If path is a URL `ext` will be TLD.
+file extension via [path.parse](https://nodejs.org/docs/latest-v10.x/api/path.html#path_path_parse_path).
+If path is a URL `ext` will be TLD.
 
 #### `file.mediaType: string | undefined`
 
@@ -146,8 +206,9 @@ This value may not be set.
 #### `[Symbol.toStringTag]: string`
 
 Set by default in all instances. Calls to `Object.prototype.toString.call(file)` for
-instances of `VirtualFile` will return the constant string value of
-`VirtualFile`.
+instances of `VirtualFile` will return the constant string value.
+
+*Default: `VirtualFile`*
 
 #### `nodejs.util.inspect.custom: string`
 
