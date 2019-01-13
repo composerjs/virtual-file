@@ -73,6 +73,8 @@ to an instance of `VirtualFile`.
 
 ### Static Methods
 
+---
+
 #### `VirtualFile.IsVirtualFile(file: VirtualFile): boolean`
 
 Returns true if the provided value is an instance of `VirtualFile`.
@@ -80,6 +82,8 @@ Returns true if the provided value is an instance of `VirtualFile`.
 ---
 
 ### Instance Methods
+
+---
 
 #### `file.toString(): string`
 
@@ -108,6 +112,8 @@ Returns a clone of the `VirtualFile` instance.
 ---
 
 ### Instance Properties
+
+---
 
 #### `file.content: Buffer`
 
@@ -215,9 +221,13 @@ instances of `VirtualFile` will return the constant string value.
 Comparable to `[Symbol.toStringTag]` this symbol is used by node's
 `util.inspect`.
 
+---
+
 ## Changelog
 * `1.0.0` - initial release
 * `1.0.2` - added documentation
+
+---
 
 ## Roadmap
 * virtual file collections
