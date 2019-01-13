@@ -217,7 +217,6 @@ instances of `VirtualFile` will return the constant string value.
 *Default: __`VirtualFile`__*
 
 #### [`nodejs.util.inspect.custom: string`][6]
-
 Comparable to `[Symbol.toStringTag]` this symbol is used by node's
 `util.inspect`.
 
@@ -226,8 +225,6 @@ Comparable to `[Symbol.toStringTag]` this symbol is used by node's
 ## Changelog
 * `1.0.0` - initial release
 * `1.0.2` - added documentation
-
----
 
 ## Roadmap
 * virtual file collections
