@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="project-except-markdown" pattern="!file:*.md" />
+</component>
