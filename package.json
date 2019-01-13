@@ -1,6 +1,6 @@
 {
   "name": "@composerjs/virtual-file",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Justin Beaudry <beaudry.justin@gmail.com>",
   "license": "MIT",
   "main": "virtualFile.ts",
