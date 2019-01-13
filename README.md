@@ -1,6 +1,6 @@
 <p align="center">
     <img alt="virtual-file" src="https://raw.githubusercontent.com/composerjs/virtual-file/master/logo.png" width="256">
-    <h1 align="center">📁 Virtual-File 📁</h1>
+    <h1 align="center">Virtual-File</h1>
 </p>
 
 <p align="center">
