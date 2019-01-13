@@ -75,23 +75,6 @@ to an instance of `VirtualFile`.
 
 Returns true if the provided value is an instance of `VirtualFile`.
 
-```typescript
-
-  import { readFileSync } from 'fs';
-  import { VirtualFile } from '@composerjs/virtual-file';
-  
-  const path = './package.json';
-  const content = readFileSync(path);
-  const file = VirtualFile.Factory({
-    path,
-    content
-  });
-  
-  VirtualFile.IsVirtualFile(file);  // true
-  VirtualFile.IsVirtualFile({});    // false
-  
-```
-
 ### Instance Methods
 
 #### `file.toString(): string`
@@ -99,49 +82,14 @@ Returns true if the provided value is an instance of `VirtualFile`.
 Returns the Buffer as a string. Internally this uses `StringDecoder`, but
 only when `encoding` is set to `utf8` or `utf16`
 
-```typescript
-
-  import { readFileSync } from 'fs';
-  import { VirtualFile } from '@composerjs/virtual-file';
-  
-  const path = './package.json';
-  const content = readFileSync(path);
-  const file = VirtualFile.Factory({
-    path,
-    content
-  });
-  
-```
-
 #### `file.toJSON(): object`
 
 Called when an instance of `VirtualFile` has been `JSON.stringify()`'d.
 This returns a flat object of picked properties from the instance.
 
-
-
 #### `file.toObject(): object`
 
 Alias of `file.toJSON()`.
-
-```typescript
-
-  import { readFileSync } from 'fs';
-  import { VirtualFile } from '@composerjs/virtual-file';
-  
-  const path = './package.json';
-  const content = Buffer.from(`{
-    name: 'my-package',
-    version: '1.0.0'   
-  }`);
-  const file = VirtualFile.Factory({
-    path,
-    content
-  });
-  
-  file.toJSON(); // {  path: './package', content: < Buffer ... >, ext: '.json', mediaType: 'application/json' ...
-  
-```
 
 #### `file.extend(file: VirtualFile): void`
 
@@ -185,7 +133,7 @@ name of the file via [path.parse](https://nodejs.org/docs/latest-v10.x/api/path.
 
 If the provided path is a valid URL this will be true.
 
-*Default: `false`*
+*Default: __`false`__*
 
 #### `file.ext: string`
 
@@ -195,8 +143,6 @@ If path is a URL `ext` will be TLD.
 #### `file.mediaType: string | undefined`
 
 [Media Type](https://www.iana.org/assignments/media-types/media-types.xhtml) (formerly called Mime Type) of the file.
-
-*Default: `undefined`*
 
 #### `file.contentType: string | undefined`
 
@@ -208,7 +154,7 @@ This value may not be set.
 Set by default in all instances. Calls to `Object.prototype.toString.call(file)` for
 instances of `VirtualFile` will return the constant string value.
 
-*Default: `VirtualFile`*
+*Default: __`VirtualFile`__*
 
 #### `nodejs.util.inspect.custom: string`
 
