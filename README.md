@@ -6,8 +6,8 @@
 <p align="center">
   VirtualFile is an object that represents a Buffer and it's metadata.
   Though this object is comparable to a <a href="https://github.com/gulpjs/vinyl">Vinyl</a>
-  object, the intention is that this is truly a simple, and flat metadata
-  object.
+  object, the intention is that instances of `VirtualFile` are truly simple, and flat metadata
+  objects.
 </p>
 
 <p align="center">
