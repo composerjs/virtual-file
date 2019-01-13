@@ -73,8 +73,6 @@ to an instance of `VirtualFile`.
 
 ### Static Methods
 
----
-
 #### `VirtualFile.IsVirtualFile(file: VirtualFile): boolean`
 
 Returns true if the provided value is an instance of `VirtualFile`.
@@ -82,8 +80,6 @@ Returns true if the provided value is an instance of `VirtualFile`.
 ---
 
 ### Instance Methods
-
----
 
 #### `file.toString(): string`
 
@@ -112,8 +108,6 @@ Returns a clone of the `VirtualFile` instance.
 ---
 
 ### Instance Properties
-
----
 
 #### `file.content: Buffer`
 
