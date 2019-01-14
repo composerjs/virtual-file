@@ -8,8 +8,9 @@
 </p>
 
 <p align="center">
+  <a href="https://www.npmjs.com/package/@composerjs/virtual-file"><img src="https://badge.fury.io/js/%40composerjs%2Fvirtual-file.svg" alt="npm version" height="18"></a>
   <img alt="Typescript 3.2" src="https://img.shields.io/badge/typescript-3.2-blue.svg">
-  <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue.svg">
+  <a href="https://raw.githubusercontent.com/composerjs/virtual-file/master/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
   <img alt="Node 10.x.x" src="https://img.shields.io/badge/node-10.x.x-blue.svg">
 </p>
 
