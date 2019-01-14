@@ -113,7 +113,7 @@ Returns a clone of the `VirtualFile` instance.
 
 #### `file.byteLength: number`
 
-Alias of `this.content.byteLength`. Returns the Buffer size in bytes.
+Alias of `file.content.byteLength`. Returns the Buffer size in bytes.
 
 *Example: `341`*
 
@@ -208,7 +208,7 @@ instances of `VirtualFile` will return the constant string value.
 
 *Default: __`VirtualFile`__*
 
-#### [`nodejs.util.inspect.custom: string`][6]
+#### [`[nodejs.util.inspect.custom: string]`][6]
 Comparable to `[Symbol.toStringTag]` this symbol is used by node's
 `util.inspect`.
 
