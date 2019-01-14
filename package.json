@@ -1,6 +1,7 @@
 {
   "name": "@composerjs/virtual-file",
   "version": "1.0.2",
+  "private": false,
   "description": "file metadata",
   "author": "Justin Beaudry <beaudry.justin@gmail.com>",
   "repository": "github:composerjs/virtual-file",
