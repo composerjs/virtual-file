@@ -20,7 +20,7 @@
     "@types/mime-types": "2.x.x",
     "ava": "1.x.x",
     "file-type": "10.x.x",
-    "is-svg": "3.x.x",
+    "is-svg": "4.x.x",
     "mime-types": "2.x.x"
   },
   "devDependencies": {
